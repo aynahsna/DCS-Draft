@@ -1,0 +1,15 @@
+<?php
+include 'db.php';
+session_start();
+
+$user_id = $_SESSION['user_id'];
+$date = $_POST['date'];
+$time = $_POST['time'];
+$service_type = $_POST['service_type'];
+
+$stmt = $conn->prepare("INSERT INTO appointments (user_id, date, time, service_type) VALUES (?, ?, ?, ?)");
+$stmt->bind_param("isss", $user_id, $date, $time, $service_type);
+$stmt->execute();
+
+echo "Appointment booked successfully. <a href='book_form.php'>Book another</a>";
+?>
