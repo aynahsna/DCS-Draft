@@ -1,0 +1,13 @@
+appointments/
+├── db.php
+├── register.php
+├── login.php
+├── logout.php
+├── book.php
+├── admin_view.php
+├── delete.php
+├── index.php         # Home/Login page
+├── register_form.php
+├── book_form.php
+├── admin_login.php
+└── style.css
