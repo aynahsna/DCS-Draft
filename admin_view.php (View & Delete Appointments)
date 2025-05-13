@@ -1,0 +1,17 @@
+<?php
+include 'db.php';
+
+$result = $conn->query("SELECT a.id, a.date, a.time, a.service_type, u.name 
+                        FROM appointments a 
+                        JOIN users u ON a.user_id = u.id");
+
+echo "<h2>All Appointments</h2>";
+while ($row = $result->fetch_assoc()) {
+    echo "{$row['name']} - {$row['date']} at {$row['time']} ({$row['service_type']})
+          <form method='POST' action='delete.php' style='display:inline'>
+              <input type='hidden' name='id' value='{$row['id']}'>
+              <button>Delete</button>
+          </form><br>";
+}
+?>
+<a href="index.php">Back to Login</a>
