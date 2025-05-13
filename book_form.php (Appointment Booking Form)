@@ -1,0 +1,21 @@
+<?php
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    header("Location: index.php");
+    exit();
+}
+?>
+<!DOCTYPE html>
+<html>
+<head><title>Book Appointment</title></head>
+<body>
+<h2>Welcome, <?= $_SESSION['name'] ?>!</h2>
+<form method="POST" action="book.php">
+    Date: <input type="date" name="date" required><br>
+    Time: <input type="time" name="time" required><br>
+    Service Type: <input type="text" name="service_type" required><br>
+    <input type="submit" value="Book Appointment">
+</form>
+<a href="logout.php">Logout</a>
+</body>
+</html>
